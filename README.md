@@ -31,7 +31,7 @@ function Example() {
       <MenuList>
         <MenuItem onSelect={() => console.log("Download")}>Download</MenuItem>
         <MenuItem onSelect={() => console.log("Copy")}>Create a Copy</MenuItem>
-        <MenuLink as="a" href="https://github.com/joelvoss/react-lit">
+        <MenuLink as="a" href="https://github.com/joelvoss/react-lit-menu-button">
           Go to website
         </MenuLink>
       </MenuList>
