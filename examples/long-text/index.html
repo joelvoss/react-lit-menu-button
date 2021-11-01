@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Example: Long text</title>
+		<style>
+			.menu-list {
+				display: block;
+				white-space: nowrap;
+				border: solid 1px hsla(0, 0%, 0%, 0.25);
+				background: hsla(0, 100%, 100%, 0.99);
+				outline: none;
+			}
+			.menu-item {
+				color: initial;
+			}
+			.menu-item[data-selected] {
+				background: hsla(211, 81%, 36%, 1);
+				color: hsla(0, 100%, 100%, 1);
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module">
+			import ReactDOM from 'react-dom';
+			import { Example } from './index.js';
+			const root = document.getElementById('root');
+			ReactDOM.render(<Example />, root);
+		</script>
+	</body>
+</html>

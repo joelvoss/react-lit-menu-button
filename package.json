@@ -1,0 +1,61 @@
+{
+  "name": "@react-lit/menu-button",
+  "version": "0.0.1",
+  "author": "Joel Voss <mail@joelvoss.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelvoss/react-lit-menu-button.git"
+  },
+  "type": "module",
+  "source": "src/index.js",
+  "main": "dist/react-lit-menu-button.cjs",
+  "module": "dist/react-lit-menu-button.module.js",
+  "exports": {
+    "require": "./dist/react-lit-menu-button.cjs",
+    "import": "./dist/react-lit-menu-button.modern.js"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "./Taskfile.sh test",
+    "prepublishOnly": "./Taskfile.sh build"
+  },
+  "dependencies": {
+    "@react-lit/dropdown": "^0.1.0",
+    "@react-lit/helper": "^0.3.0",
+    "@react-lit/popover": "^0.1.0"
+  },
+  "devDependencies": {
+    "@jvdx/core": "^2.7.0",
+    "@react-lit/dialog": "^0.1.0",
+    "@react-lit/tooltip": "^0.1.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "jest-axe": "^5.0.1",
+    "parcel": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "peerDependencies": {
+    "react": "17.x",
+    "react-dom": "17.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "prettier": "@jvdx/prettier-config",
+  "prettierIgnore": [
+    "tests/",
+    "dist/"
+  ],
+  "eslintConfig": {
+    "extends": "@jvdx/eslint-config"
+  },
+  "eslintIgnore": [
+    "tests/",
+    "dist/"
+  ]
+}
