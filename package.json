@@ -15,7 +15,7 @@
     "require": "./dist/react-lit-menu-button.cjs",
     "import": "./dist/react-lit-menu-button.modern.js"
   },
-  "types": "dist/index.d.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "LICENSE"
