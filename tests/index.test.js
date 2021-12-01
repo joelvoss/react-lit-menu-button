@@ -178,15 +178,15 @@ describe('<MenuButton /> with axe', () => {
 			jest.useRealTimers();
 			let { container, list, button } = renderTestMenu();
 
-			expect(container).toHaveNoAxeViolations();
+			await expect(container).toHaveNoAxeViolations();
 
 			// Toggle the menu and check again
 			simulateMouseClick(button);
-			expect(container).toHaveNoAxeViolations();
+			await expect(container).toHaveNoAxeViolations();
 
 			// We have to check the container and list separately since the list is
 			// portaled outside of the container.
-			expect(list).toHaveNoAxeViolations();
+			await expect(list).toHaveNoAxeViolations();
 		});
 	});
 
@@ -195,15 +195,15 @@ describe('<MenuButton /> with axe', () => {
 			jest.useRealTimers();
 			let { container, list, button } = renderTestMenuWithLinks();
 
-			expect(container).toHaveNoAxeViolations();
+			await expect(container).toHaveNoAxeViolations();
 
 			// Toggle the menu and check again
 			simulateMouseClick(button);
-			expect(container).toHaveNoAxeViolations();
+			await expect(container).toHaveNoAxeViolations();
 
 			// We have to check the container and list separately since the list is
 			// portaled outside of the container.
-			expect(list).toHaveNoAxeViolations();
+			await expect(list).toHaveNoAxeViolations();
 		});
 	});
 
@@ -212,15 +212,15 @@ describe('<MenuButton /> with axe', () => {
 			jest.useRealTimers();
 			let { container, list, button } = renderTestMenuWithLinksAndItems();
 
-			expect(container).toHaveNoAxeViolations();
+			await expect(container).toHaveNoAxeViolations();
 
 			// Toggle the menu and check again
 			simulateMouseClick(button);
-			expect(container).toHaveNoAxeViolations();
+			await expect(container).toHaveNoAxeViolations();
 
 			// We have to check the container and list separately since the list is
 			// portaled outside of the container.
-			expect(list).toHaveNoAxeViolations();
+			await expect(list).toHaveNoAxeViolations();
 		});
 	});
 });
