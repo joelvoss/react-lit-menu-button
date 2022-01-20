@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, useMemo } from 'react';
+import * as React from 'react';
 import { Popover } from '@react-lit/popover';
 import {
 	DropdownProvider,
@@ -16,16 +16,16 @@ import { noop } from '@react-lit/helper';
  * Menu is the wrapper component for the other components.
  * No DOM element is rendered.
  */
-export const Menu = forwardRef(
-	({ as: Comp = Fragment, id, children, style, ...rest }, parentRef) => {
-		const parentIsFragment = useMemo(() => {
+export const Menu = React.forwardRef(
+	({ as: Comp = React.Fragment, id, children, style, ...rest }, parentRef) => {
+		const parentIsFragment = React.useMemo(() => {
 			try {
-				// NOTE(joel): To test if the component renders a fragment we need to
+				// NOTE(joel): To test if the component renders a React.Fragment we need to
 				// actually render it, but this may throw an error since we can't
 				// predict what is actually provided. There's technically a small
 				// chance that this could get it wrong but I don't think it's too
 				// likely in practice.
-				return Comp == Fragment;
+				return Comp == React.Fragment;
 			} catch (err) {
 				return false;
 			}
@@ -53,7 +53,7 @@ export const Menu = forwardRef(
  * MenuButton wraps a DOM `button` that toggles the opening and closing of the
  * dropdown menu. Must be rendered inside of a `<Menu>`.
  */
-export const MenuButton = forwardRef(
+export const MenuButton = React.forwardRef(
 	({ as: Comp = 'button', ...rest }, parentRef) => {
 		let {
 			data: { isExpanded, controls },
@@ -76,7 +76,7 @@ export const MenuButton = forwardRef(
 /**
  * MenuItemImpl is the base implementation of a `MenuItem` or `MenuLink`.
  */
-export const MenuItemImpl = forwardRef(
+export const MenuItemImpl = React.forwardRef(
 	({ as: Comp = 'div', style, ...rest }, parentRef) => {
 		let {
 			data: { disabled },
@@ -107,7 +107,7 @@ export const MenuItemImpl = forwardRef(
 /**
  * MenuItem handles menu selection. Must be a direct child of a `<MenuList>`.
  */
-export const MenuItem = forwardRef(({ as = 'div', ...props }, parentRef) => (
+export const MenuItem = React.forwardRef(({ as = 'div', ...props }, parentRef) => (
 	<MenuItemImpl {...props} ref={parentRef} as={as} />
 ));
 
@@ -119,7 +119,7 @@ export const MenuItem = forwardRef(({ as = 'div', ...props }, parentRef) => (
  * and their rendered DOM nodes, or if you need to nest arbitrary components
  * between the outer wrapper and your list.
  */
-export const MenuItems = forwardRef(
+export const MenuItems = React.forwardRef(
 	({ as: Comp = 'div', ...rest }, parentRef) => {
 		let {
 			data: { activeDescendant, triggerId },
@@ -142,10 +142,10 @@ export const MenuItems = forwardRef(
 /**
  * MenuLink handles linking to a different page in the menu. By default it
  * renders `<a>`, but also accepts any other kind of Link as long as the `Link`
- * uses the `React.forwardRef` API.
+ * uses the `React.React.forwardRef` API.
  * Must be a direct child of a `<MenuList>`.
  */
-export const MenuLink = forwardRef(
+export const MenuLink = React.forwardRef(
 	({ as = 'a', onSelect, ...props }, parentRef) => (
 		<MenuItemImpl
 			{...props}
@@ -163,7 +163,7 @@ export const MenuLink = forwardRef(
  * MenuList wraps a DOM element that renders the menu items. Must be rendered
  * inside of a `<Menu>`.
  */
-export const MenuList = forwardRef(({ portal = true, ...props }, parentRef) => (
+export const MenuList = React.forwardRef(({ portal = true, ...props }, parentRef) => (
 	<MenuPopover portal={portal}>
 		<MenuItems {...props} ref={parentRef} />
 	</MenuPopover>
@@ -175,7 +175,7 @@ export const MenuList = forwardRef(({ portal = true, ...props }, parentRef) => (
  * MenuPopover is a low-level wrapper for the popover that appears when a menu
  * button is open.
  */
-export const MenuPopover = forwardRef(
+export const MenuPopover = React.forwardRef(
 	({ as: Comp = 'div', style, ...rest }, parentRef) => {
 		let {
 			data: { portal, targetRef, position },
@@ -212,5 +212,5 @@ export function useMenuButtonContext() {
 	let {
 		state: { isExpanded },
 	} = useDropdownContext();
-	return useMemo(() => ({ isExpanded }), [isExpanded]);
+	return React.useMemo(() => ({ isExpanded }), [isExpanded]);
 }
