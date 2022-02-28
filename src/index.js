@@ -107,9 +107,11 @@ export const MenuItemImpl = React.forwardRef(
 /**
  * MenuItem handles menu selection. Must be a direct child of a `<MenuList>`.
  */
-export const MenuItem = React.forwardRef(({ as = 'div', ...props }, parentRef) => (
-	<MenuItemImpl {...props} ref={parentRef} as={as} />
-));
+export const MenuItem = React.forwardRef(
+	({ as = 'div', ...props }, parentRef) => (
+		<MenuItemImpl {...props} ref={parentRef} as={as} />
+	),
+);
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -163,11 +165,13 @@ export const MenuLink = React.forwardRef(
  * MenuList wraps a DOM element that renders the menu items. Must be rendered
  * inside of a `<Menu>`.
  */
-export const MenuList = React.forwardRef(({ portal = true, ...props }, parentRef) => (
-	<MenuPopover portal={portal}>
-		<MenuItems {...props} ref={parentRef} />
-	</MenuPopover>
-));
+export const MenuList = React.forwardRef(
+	({ portal = true, ...props }, parentRef) => (
+		<MenuPopover portal={portal}>
+			<MenuItems {...props} ref={parentRef} />
+		</MenuPopover>
+	),
+);
 
 ////////////////////////////////////////////////////////////////////////////////
 
