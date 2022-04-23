@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Menu, MenuButton, MenuItem, MenuList } from '../../src/index';
 
 export function Example() {
